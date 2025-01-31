@@ -1,9 +1,9 @@
-import reactLogo from "./assets/react.svg";
-
+import ReactIcon from "./components/ReactIcon";
+import "./App.css";
 function App() {
   return (
     <>
-      <img src={reactLogo} className="logo react" alt="React logo" />
+      <ReactIcon />
     </>
   );
 }
