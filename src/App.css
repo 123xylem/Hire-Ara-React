@@ -1,3 +1,30 @@
+html {
+  background: black;
+}
+
+#root {
+  display: flex;
+  padding: 2rem;
+  max-width: 1080px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+.logo {
+  margin: auto;
+}
+
+.icon-container:hover {
+  cursor: pointer;
+}
+
 .rotate {
   animation: spin 4s linear infinite;
 }
@@ -15,5 +42,63 @@
 @keyframes spinreverse {
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+.time-tracker {
+  color: white;
+}
+
+.sidebar {
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.sidebar-inner {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.sidebar-inner.hidden {
+  transform: scale(0.01);
+  opacity: 0;
+  height: 5px;
+}
+
+.hide-me {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+  font-weight: bold;
+}
+
+.hide-me:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    flex-direction: column;
+  }
+  .sidebar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .hide-me {
+    position: absolute;
+    left: 30%;
+    top: -0.5rem;
+    border-radius: 4px;
+    padding: 0.25rem 0.4rem;
+    max-width: 30px;
   }
 }
