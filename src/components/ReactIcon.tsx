@@ -18,8 +18,9 @@ const ReactIcon: React.FC<ReactIconProps> = ({
 
   const [timeInScreen, setTimeInScreen] = useState(0);
   const rotate = (e: SyntheticEvent) => {
-    const target = e.target as HTMLImageElement;
-
+    handleRotation(e.target as HTMLImageElement);
+  };
+  const handleRotation = (target: HTMLImageElement) => {
     if (!allowRotate) {
       target.classList.remove("rotate");
       target.classList.remove("rotate-reverse");
@@ -63,13 +64,6 @@ const ReactIcon: React.FC<ReactIconProps> = ({
 
     if (allowResize) {
       updateSize();
-      console.log("fired");
-      window.addEventListener("resize", updateSize);
-      window.addEventListener("scroll", updateSize);
-      return () => {
-        window.removeEventListener("resize", updateSize);
-        window.removeEventListener("scroll", updateSize);
-      };
     }
   }, [x, y, isInViewport, allowResize]);
 
@@ -108,9 +102,10 @@ const ReactIcon: React.FC<ReactIconProps> = ({
           className="logo react"
           alt="React logo"
         />
-        {timeInScreen > 0 && (
-          <p className="time-tracker">Time in screen: {timeInScreen}</p>
-        )}
+
+        <p className="time-tracker">
+          Time in screen: {timeInScreen} Second{timeInScreen !== 1 ? "s" : ""}
+        </p>
       </div>
     </>
   );

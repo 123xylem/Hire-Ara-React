@@ -20,7 +20,6 @@ const Sidebar: React.FC<Props> = ({
   const sidebarInner = useRef<HTMLDivElement | null>(null);
   const showHideText = showSidebar ? "X" : "+";
   const toggleSidebar = () => {
-    console.log(sidebarInner.current?.classList);
     sidebarInner.current?.classList.toggle("hidden");
     setShowSidebar(!showSidebar);
   };
